@@ -13,7 +13,6 @@ import java.util.Scanner;
  */
 public class Topping {
    
-    private int cantidad;
     private String ingrediente;    
     private double precio;
 
@@ -35,11 +34,6 @@ public class Topping {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    public int getCantidad() {
-        return cantidad;
-    }
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }    
+      
     }
 

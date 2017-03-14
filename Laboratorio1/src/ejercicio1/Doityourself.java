@@ -13,28 +13,18 @@ import java.util.Scanner;
  */
 public class Doityourself {
         private Topping ingrediente;
-        private int cantidad;
         private double precio;
 
     public Doityourself() {
         this.ingrediente = ingrediente;
-        this.cantidad=cantidad;
         this.precio=precio;
     }
        public Topping getIngrediente() {
         return ingrediente;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
     public void setIngrediente(Topping ingrediente) {
         this.ingrediente = ingrediente;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public double getPrecio() {
@@ -47,19 +37,15 @@ public class Doityourself {
     
     public void pedidoDoityourself() {
         Scanner teclado=new Scanner (System.in);
-        int z=0;
+        
         int a=0;
         double c=0;
         double d=0;
-        String b[]=new String[a];
-        Topping ing[]=new Topping[a];
-        System.out.println("¿Cuántas pizzas quiere?");
-        z=teclado.nextInt();
-        setCantidad(z);
         System.out.println("¿Cuántos ingredientes quiere?");
         a=teclado.nextInt();        
         System.out.println("¿Cuáles?"+"\n"+"1.Queso"+"\n"+"2.Jamon"+"\n"+"3.Champinones"+"\n"+"4.Pollo"+"\n"+"5.Carne"+"\n"+"6.Tocineta"+"\n"+"7.Maiz"+"\n"+"8.Pina"+"\n"+"9.Pimenton"+"\n"+"El tomate ya viene incluido en el precio");
-        
+        String b[]=new String[a];
+        Topping ing[]=new Topping[a];
 
         for (int i = 0; i < a; i++) {
         b[i]=teclado.next();

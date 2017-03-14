@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Pizza {
     private int tamaño;
     private String base;
+    private int cantidad;
     private Doityourself tipopizza1;
     private Prefab tipopizza2;
     private double preciototal;
@@ -23,6 +24,7 @@ public class Pizza {
         this.base = base;
         this.tipopizza1 = tipopizza1;
         this.tipopizza2 = tipopizza2;
+        this.cantidad=cantidad;
     }
 
     public double getPreciototal() {
@@ -33,7 +35,14 @@ public class Pizza {
         this.preciototal = preciototal;
     }
 
-    
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+   
 
     public int getTamaño() {
         return tamaño;
@@ -58,23 +67,29 @@ public class Pizza {
         String a = null;
         int b=0;
         String c=null;
+        int z=0;
+        double d=0;
+        double e=0;
+        double f=0;
+        System.out.println("¿Cuántas pizzas quiere?");
+        z=teclado.nextInt();
+        setCantidad(z);
+        for (int i = 0; i < z; i++) {           
         System.out.println("¿Que tipo de pizza quiere?"+"\n"+"1.Prefabricada"+"\n"+"2.Do it yourself");
         c=teclado.next();
         switch(c){
             case "Prefabricada":
                 Prefab pizza1= new Prefab();
                 pizza1.pedidoPrefab();
-                setPreciototal(pizza1.getPrecio());
-                for (int i = 0; i < pizza1.getCantidad(); i++) {
-                System.out.println("¿Qué base de pizza quiere para la"+(i+1)+"° pizza?"+"\n"+"1.Delgada"+"\n"+ "2.Gruesa");
+                System.out.println("¿Qué base de pizza quiere para la pizza?"+"\n"+"1.Delgada"+"\n"+ "2.Gruesa");
                 a=teclado.next(); 
                 setBase(a);
                 switch(a){
                     case "Delgada":
-                        this.setPreciototal(getPreciototal()+500);
+                        d=pizza1.getPrecio();
                         break;
                     case "Gruesa":
-                        setPreciototal (getPreciototal()+1000);
+                        d=pizza1.getPrecio()+1000;
                         break;
                     default:
                         System.out.println("No existe esta opción");
@@ -85,35 +100,33 @@ public class Pizza {
                 setTamaño(b);
                 switch(b){
                     case 6:
-                        this.setPreciototal(getPreciototal());
+                        d=d;
                         break;
                     case 9:
-                        setPreciototal (getPreciototal()+2000);
+                        d=d+2000;
                         break;
                     case 12:
-                        setPreciototal (getPreciototal()+4000);
+                         d=d+4000;
                         break;
                     default:
                         System.out.println("No existe esta opción");
                         break;
                         }
-                
-                        }
+                f=f+d;
                 break;
                     
             case "Doityourself":
                 Doityourself pizza2=new Doityourself();
                 pizza2.pedidoDoityourself();
-                for (int i = 0; i < pizza2.getCantidad(); i++) {
-                System.out.println("¿Qué base de pizza quiere para la"+(i+1)+"° pizza?"+"\n"+"1.Delgada"+"\n"+ "2.Gruesa");
+                System.out.println("¿Qué base de pizza quiere para la pizza?"+"\n"+"1.Delgada"+"\n"+ "2.Gruesa");
                 a=teclado.next(); 
                 setBase(a);
                 switch(a){
                     case "Delgada":
-                        this.setPreciototal(pizza2.getPrecio()+500);
+                        e=pizza2.getPrecio()+500;
                         break;
                     case "Gruesa":
-                        setPreciototal (pizza2.getPrecio()+1000);
+                        e=pizza2.getPrecio()+1000;
                         break;
                     default:
                         System.out.println("No existe esta opción");
@@ -124,22 +137,26 @@ public class Pizza {
                 setTamaño(b);
                 switch(b){
                     case 6:
-                        this.setPreciototal(getPreciototal());
+                        e=e;
                         break;
                     case 9:
-                        setPreciototal (getPreciototal()+2000);
+                        e=e+2000;
                         break;
                     case 12:
-                        setPreciototal (getPreciototal()+4000);
+                         e=e+4000;
                         break;
                     default:
                         System.out.println("No existe esta opción");
                         break;
-                } 
+                }
+            f=f+e;
             break;
              }
+        
         }
+        this.setPreciototal(f);
     }
 }
+
 
 

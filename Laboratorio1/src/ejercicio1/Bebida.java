@@ -16,6 +16,7 @@ public class Bebida {
    private String tamaño;
    private String tipo;
    private double precio;
+   private int cantidad;
    
    
 
@@ -23,6 +24,14 @@ public class Bebida {
         this.tamaño = tamaño;
         this.tipo = tipo;
         this.precio = precio;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getCantidad() {
+        return cantidad;
     }
 
     public String getTamaño() {
@@ -54,41 +63,49 @@ public class Bebida {
         Scanner teclado=new Scanner (System.in);
         String a = null;
         String b=null;
+        int z=0;
+        double c=0;
+        double d=0;
+        System.out.println("¿Cuántas bebidas quiere?");
+        z=teclado.nextInt();
+        setCantidad(z);
+        for (int i = 0; i < z; i++) { 
         System.out.println("¿Qué bebida quiere?"+"\n"+"1.Limonada"+"\n"+"2.Cola");
         a=teclado.next(); 
         setTipo(a);
         switch(a){
             case "Limonada":
-                setPrecio(2000);
+                c=2000;
                 break;
             case "Cola":
-                setPrecio(1500);
+                c=1500;
                 break;                
             default:
                  System.out.println("No existe esta opción");
                  break;
         }
-        System.out.println("¿Qué tamaño?"+"\n"+"1.Grande"+"\n"+"2.Peque");
+        System.out.println("¿Qué tamaño?"+"\n"+"1.Grande"+"\n"+"2.Pequena");
         b=teclado.next();
         setTamaño(b);
         
         switch(b){
             case "Grande":
-                setPrecio(getPrecio()+1500);
+                setPrecio(c+1500);
                 break;
-            case "Peque":
-                setPrecio (getPrecio());
+            case "Pequena":
+                setPrecio (c);
             default:
                  System.out.println("No existe esta opción");
                  break;
         }
-            
-        
+        d=d+c;
+        }    
+        setPrecio(d);
         System.out.println("Escogió la bebida " + getTipo()+" de tamaño "+ getTamaño()+". Esta cuesta "+ getPrecio()+ " pesos.");
         
-    }
+    
    
-   
+    } 
    
     
 }

@@ -14,8 +14,7 @@ import java.util.Scanner;
 public class Prefab {
     private Topping ingrediente;
     private double Precio ;
-    private int Cantidad;
-
+    
     public Prefab() {
         this.ingrediente = ingrediente;
     }
@@ -28,10 +27,6 @@ public class Prefab {
         return Precio;
     }
 
-    public int getCantidad() {
-        return Cantidad;
-    }
-
     public void setIngrediente(Topping ingrediente) {
         this.ingrediente = ingrediente;
     }
@@ -39,28 +34,15 @@ public class Prefab {
     public void setPrecio(double Precio) {
         this.Precio = Precio;
     }
-
-    public void setCantidad(int Canitdad) {
-        this.Cantidad = Canitdad;
-    }
-    
-    
-    
+  
     public void pedidoPrefab(){
         Scanner teclado=new Scanner (System.in);
-        this.setPrecio(3000);
-        int z=0;
-        System.out.println("¿Cuántas pizzas quiere?");
-        z=teclado.nextInt();
-        setCantidad(z);
         double c=0;
-        double d=0;
-        for (int i = 0; i < z; i++) {    
+        double d=0; 
         System.out.println("¿Cuál pizza quiere?"+"\n"+"1.hawaiana"+"\n"+"2.Pollo"+"\n"+"3.Colombiana"+"\n"+"4.Tocineta");
-        String b[]=new String[z];
-        Topping ing[]=new Topping[z];
-        b[i]=teclado.next();
-        switch(b[i]){
+        String b=null;        
+        b=teclado.next();
+        switch(b){
                 case "Hawaiana":
                     c=8000;
                     break;
@@ -79,13 +61,10 @@ public class Prefab {
                   }
         
                     
-        ing[i]=new Topping(b[i],c);
+        Topping pizza=new Topping(b,c);
         
-        d=d+c;
-        
-                  
-        } 
-        setPrecio(d);
+
+        setPrecio(c);
         System.out.println("Este pedido cuesta "+ getPrecio()+"pesos." );  
 
         
